@@ -1,0 +1,113 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<!--
+`kano-share-card`
+
+
+@demo demo/index.html 
+-->
+
+<dom-module id="kano-share-card">
+    <template>
+		<style>
+			:host {
+				display: block;
+			}
+			
+			#avatar {
+				width: 60px;
+				height: 60px;
+			}
+			
+			.card {
+				/* Add shadows to create the "card" effect */
+				box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+				transition: 0.3s;
+				border-radius:15px;
+			}
+			/* On mouse-over, add a deeper shadow */
+			
+			.card:hover {
+				box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+			}
+		</style>
+		<div class="card">
+			<div class="">
+				<div class="">
+					<div class="">
+						<img id="avatar" src="{{avatar}}" class=""> </img>
+						<div class="">
+							<h2>{{authorName}}</h2>
+						</div>
+						<div class="">
+							<h2>{{date_created}}</h2>
+						</div>
+					</div>
+				</div>
+				<div class="">
+					<img class="" src="{{coverImage}}"></img>
+				</div>
+				<div class="">
+					<div class="">
+						<i class="fa fa-heart"></i><span class="">{{likes_count}} likes </span>
+						<i class="fa fa-commenting"></i><span class="">{{comments_count}} comments </span>
+						<i class="fa fa-share-alt"></i><span class="">share </span>
+					</div>
+					<div class="">
+						<div class="">
+							<h2>{{title}}</h2>
+							<article class="">{{description}}</article>
+						</div>
+						<div class="">
+							<button class="">Remix <i class="fa fa-code"></i></button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+	</template>
+
+    <script>
+        Polymer({
+
+            is: 'kano-share-card',
+
+            properties: {
+                authorName: {
+                    type: String,
+                    value: 'jOEY eTAMITY',
+                },
+                coverImage: {
+                    type: String,
+                    value: 'https://s3-eu-west-1.amazonaws.com/world.kano.me/share-items/covers/5822cd7cf68b22954c04bdfb.png'
+                },
+                avatar: {
+                    type: String,
+                    value: 'https://s3-eu-west-1.amazonaws.com/world.kano.me/users/avatars/5821dfeabc15adcf0e5442bb/avatar-circle.png'
+                },
+                title: {
+                    type: String,
+                    value: 'Pong Game'
+                },
+                description: {
+                    type: String,
+                    value: 'Pong is a simple thing to create, but is something to get your brain turning.'
+                },
+                date_created: {
+                    type: String,
+                    value: 'Oct 2016'
+                },
+                comments_count: {
+                    type: Number,
+                    value: 0
+                },
+                likes_count: {
+                    type: Number,
+                    value: 0
+                }
+            },
+
+        });
+    </script>
+</dom-module>

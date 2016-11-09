@@ -1,0 +1,146 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<!--
+`kano-word-share-card`
+
+
+@demo demo/index.html 
+-->
+
+<dom-module id="kano-world-share-card">
+    <template>
+		<style>
+			:host {
+				display: block;
+			}
+			
+			#avatar {
+				width: 35px;
+				height: 35px;
+			}
+			
+			#image-frame {
+				background-color: #253238;
+			}
+			
+			.authorname-font {
+				font-size: 16px;
+				font-color: #616161;
+			}
+			
+			.date-font {
+				font-size: 16px;
+				font-color: #616161;
+			}
+			
+			.title-font {
+				font-size: 18px;
+				font-color: #435055;
+				font-weight: bold;
+			}
+			
+			.descrption-font {
+				font-size: 16px;
+				font-color: #435055;
+			}
+			
+			img {
+				max-width: 90%;
+				height: auto;
+			}
+            a.nounderline {text-decoration: none; }
+			a span{
+				padding: 5px;
+				text-decoration: none;
+			}
+
+		</style>
+		<div class="w3-card-2 w3-round-medium">
+			<div class="w3-container w3-margin-top w3-padding">
+				<div class="w3-row w3-margin-top">
+					<img id="avatar" src="{{avatar}}" class="w3-left w3-circle w3-quarter"> </img>
+					<div class="w3-quarter w3-margin-left">
+						<h2 class="authorname-font w3-text-grey">{{authorName}}</h2>
+					</div>
+					<div class="w3-rest w3-right">
+						<h2 class="date-font w3-text-grey">{{date_created}}</h2>
+					</div>
+				</div>
+			</div>
+			<div class="w3-center" id="image-frame">
+				<img class="w3-margin" src="{{coverImage}}"></img>
+			</div>
+			<div class="w3-container w3-padding-xlarge">
+				<div class="w3-row w3-padding-12">
+					<div class="w3-col" style="width:80px">
+						<a href="#" class="nounderline"><i class="fa fa-heart"></i><span class="w3-text-grey">{{likes_count}} likes </span> </a>
+					</div>
+					<div class="w3-col" style="width:120px">
+						<a href="#" class="nounderline"><i class="fa fa-commenting"></i><span class="w3-text-grey" >
+					   {{comments_count}} comments </span></a>
+					</div>
+					<div class="w3-col" style="width:80px">
+						<a href="#" class="nounderline"><i class="fa fa-share-alt"></i><span class="w3-text-grey">share</span></a>
+					</div>
+				</div>
+				<div class="w3-row w3-padding-24 w3-border-top">
+					<div class="w3-col w3-threequarter">
+						<h2 class="title-font w3-text-dark-grey">{{title}}</h2>
+						<article class="descrption-font w3-text-grey">{{description}}</article>
+					</div>
+					<div class="w3-col w3-quarter w3-center">
+						<div class="w3-content w3-margin-top" style="padding:30px;">
+							<button class="w3-btn w3-orange w3-round w3-large w3-text-light-gray">remix <i class="fa fa-code"></i></button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+
+	</template>
+
+    <script>
+        Polymer({
+
+            is: 'kano-world-share-card',
+
+            properties: {
+                authorName: {
+                    type: String,
+                    value: 'jOEY eTAMITY',
+                },
+                coverImage: {
+                    type: String,
+                    value: 'https://s3-eu-west-1.amazonaws.com/world.kano.me/share-items/covers/5822cd7cf68b22954c04bdfb.png'
+                },
+                avatar: {
+                    type: String,
+                    value: 'https://s3-eu-west-1.amazonaws.com/world.kano.me/users/avatars/5821dfeabc15adcf0e5442bb/avatar-circle.png'
+                },
+                title: {
+                    type: String,
+                    value: 'Pong Game'
+                },
+                description: {
+                    type: String,
+                    value: 'Pong is a simple thing to create, but is something to get your brain turning.'
+                },
+                date_created: {
+                    type: String,
+                    value: 'Oct 2016'
+                },
+                comments_count: {
+                    type: Number,
+                    value: 0
+                },
+                likes_count: {
+                    type: Number,
+                    value: 0
+                }
+            },
+
+        });
+    </script>
+</dom-module>
