@@ -15,22 +15,49 @@
 
     <style is="custom-style" include="demo-pages-shared-styles">
         .centered {
-            max-width: 584px;
+            max-width: 620px;
             margin-left: auto;
             margin-right: auto;
+        }
+        
+        body {
+            background-color: #27323A;
         }
     </style>
 </head>
 
 <body>
-    <div class="vertical-section-container centered">
+    <div class="vertical-section-container centered" style="background-color:#27323A">
         <h3>Basic kano-world-share-card demo</h3>
         <demo-snippet>
             <template>
-          <kano-world-share-card></kano-world-share-card>
-        </template>
+				<kano-world-share-card id="share"></kano-world-share-card>
+                <script>
+                        document.addEventListener('WebComponentsReady', function () {
+                            var card = document.querySelector('kano-world-share-card#share');
+
+                            card.share = {
+                                title: 'My awesome share',
+                                description:"Please note that the old deep layout classes are deprecated, and should not be used. To continue using layout properties directly in markup, please switch to using the new dom-module-based layout classes. Please note that the new version does not use deep, and therefore requires you to import the dom-modules in every element that needs to use them.",
+                                user: {
+                                    username: 'platypusmeister',
+                                    avatar: {
+                                        urls: {
+                                            circle: 'https://pbs.twimg.com/profile_images/613499829608665088/8VPONBWD.jpg'
+                                        }
+                                    }
+                                },
+                                cover_url: 'http://vignette2.wikia.nocookie.net/adventuretimewithfinnandjake/images/0/0b/Blush.jpg/revision/latest',
+                                date_created: new Date(),
+                                likes: new Array(27),
+                                comments_count: 5
+                            }
+                        });
+                    </script>
+			</template>
         </demo-snippet>
     </div>
 </body>
+
 
 </html>
