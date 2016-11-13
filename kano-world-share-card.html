@@ -11,10 +11,9 @@
 <dom-module id="kano-world-share-card">
     <template>
         <style>
-            :host {
+             :host {
                 display: block;
-                height: 610px;
-                width: 584px;
+                width: 100%;
                 color: #6e6e6e;
                 border: 1px solid #e0e0e0;
                 border-radius: 3px;
@@ -25,73 +24,96 @@
                 @apply --kw-share-card;
                 background: white;
                 box-sizing: border-box;
-                padding: 16px;
             }
-            :host(:focus) {
+            
+             :host(:focus) {
                 outline: none;
-                box-shadow: 0 3px 0 0 rgba(0,0,0,0.08);
+                box-shadow: 0 3px 0 0 rgba(0, 0, 0, 0.08);
             }
-            iron-image.cover {
-                @apply --layout-flex;
+
+
+            .coverbackground{
+                background: #253238;
+                @apply(--layout-relative);
+                width: 100%;
+                height: 373px;
+            }
+                        
+            .coverbackground iron-image.cover {
+                @apply --layout-fit;
                 z-index: 0;
                 width: 100%;
                 background: inherit;
-                border-radius: 4px;
             }
-            .top, .bottom {
-                width: 100%;
+
+            .top,
+            .bottom {
+                width: 95%;
                 @apply --layout-horizontal;
                 min-height: 30px;
-                margin-bottom: 16px;
+                margin: 16px;
             }
+            
             .bottom {
                 margin-top: 16px;
                 margin-bottom: 0px;
                 @apply(--layout-vertical);
             }
-            .bottom .content{
-                width: 80%;
-                @apply --layout-horizontal;
-            }
-
+            
             .share-info {
                 @apply --layout-horizontal;
                 @apply --layout-end;
                 width: 100%;
             }
+            
             .datetime {
                 @apply --layout-horizontal;
                 @apply --layout-end;
+                width: 120px;
             }
+            
             .title {
                 color: #435055;
                 font-weight: bold;
                 margin-right: 12px;
             }
-            .stats {
-                @apply --layout-horizontal;
-            }
+            
             iron-image.avatar {
-                width: 30px;
-                height: 30px;
-                margin-right: 12px;
+                width: 45px;
+                height: 45px;
+                margin-right: 8px;
+                -webkit-border-radius: 50%;
+                -moz-border-radius: 50%;
+                border-radius: 50%;
             }
+            
             .details {
                 padding-left: 18px;
             }
-            .details h3, .details p {
+            
+            .details h3,
+            .details p {
                 margin: 0;
             }
-            .stats .likes,
-            .stats .comments {
-                padding: 6px;
+            
+            .stats {
+                @apply --layout-horizontal;
             }
+
+            .stats .likes,
+            .stats .comments,
+            .stats .shares {
+                padding: 6px;
+                width: 60px;
+            }
+            
             div[tombstone].top .avatar {
                 border-radius: 50%;
                 background: rgba(0, 0, 0, 0.01);
                 overflow: hidden;
                 z-index: 0;
             }
+            
             div[tombstone].top .author,
             div[tombstone].top date-util {
                 width: 120px;
@@ -99,12 +121,13 @@
                 background: rgba(0, 0, 0, 0.01);
                 color: transparent;
             }
-
+            
             div[tombstone].bottom .title {
                 width: 120px;
                 height: 20px;
                 background: rgba(0, 0, 0, 0.03);
             }
+            
             div[tombstone].bottom .likes,
             div[tombstone].bottom .comments {
                 width: 80px;
@@ -112,32 +135,29 @@
                 background: rgba(0, 0, 0, 0.01);
                 color: transparent;
             }
+            .bottom .content {
+                @apply --layout-horizontal;
+                padding-bottom:16px;
+            }
+            .bottom .content .description {
+                 @apply(--layout-flex-3);
+            }
+            .bottom .content .actions{        
+                width: 20%;   
+                @apply --layout-horizontal;
+                @apply(--layout-center);
+                @apply(--layout-center-justified);
+                padding-top:15%;
+            }
 
-            .orange-flat-button {
-                position: relative;
-                vertical-align: top;
-                width: 100%;
-                height: 60px;
-                padding: 0;
-                font-size: 22px;
+            .remixbutton{
+                background-color: #FF8413;
+                border-radius: 5px;
+                width:79px;
+                height:32px;
                 color: white;
-                text-align: center;
-                text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
-                background: #f39c12;
-                border: 0;
-                border-bottom: 2px solid #e8930c;
-                cursor: pointer;
-                -webkit-box-shadow: inset 0 -2px #e8930c;
-                box-shadow: inset 0 -2px #e8930c;
+                border: none;
             }
-            .orange-flat-button:active {
-                top: 1px;
-                outline: none;
-                -webkit-box-shadow: none;
-                box-shadow: none;
-            }
-
-
 
         </style>
         <div class="top" tombstone$="[[!share]]">
@@ -149,25 +169,30 @@
                 <date-util format="dd Mon yyyy" date="[[_createDate(share.date_created)]]"></date-util>
             </div>
         </div>
+        <div class="coverbackground">
         <iron-image id="cover" class="cover" src="[[share.cover_url]]" sizing="cover" preload fade tombstone$="[[!share]]"></iron-image>
+        </div>
         <div class="bottom" tombstone$="[[!share]]">
             <div class="stats">
                 <div class="likes">
-                    <span>[[share.likes.length]] likes</span>
+                  <span><img src="images/likesIcon.png"> </img>[[share.likes.length]]</span>
                 </div>
                 <div class="comments">
-                    <span>[[share.comments_count]] replies</span>
+                    <span><img src="images/commentIcon.png"> </img>[[share.comments_count]]</span>
+                </div>
+                 <div class="shares">
+                    <span><img src="images/shareIcon.png"> </img>share</span>
                 </div>
             </div>
-			<div class="content">
+            <div class="content">
                 <div class="description">
-			        <h2 class="title">[[share.title]]</h2>
-			    <article>[[share.description]]</article>
+                    <h2 class="title">[[share.title]]</h2>
+                    <article>[[share.description]]</article>
                 </div>
-                 <div class="actions">
-                <input type="submit" value="Orange" class="orange-flat-button">
+                <div class="actions">
+                     <button type="submit" class="remixbutton" onclick="">remix <img src="images/remix.png" /></button>
                 </div>
-		    </div>
+            </div>
         </div>
     </template>
     <script>
