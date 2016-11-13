@@ -73,8 +73,8 @@
             }
             
             .title {
-                color: #435055;
-                font-weight: bold;
+                color: rgba(67, 80, 86, 1);
+                font-weight: 300 ;
                 margin-right: 12px;
             }
             
@@ -98,6 +98,7 @@
             
             .stats {
                 @apply --layout-horizontal;
+                padding-bottom: 16px;
             }
 
             .stats .likes,
@@ -138,16 +139,25 @@
             .bottom .content {
                 @apply --layout-horizontal;
                 padding-bottom:16px;
+                border-top-style: solid;
+                border-top-width: 0.5px;
+                border-top-color: rgba(99, 107, 126, .14);
             }
             .bottom .content .description {
                  @apply(--layout-flex-3);
+                 color: rgba(97, 97, 97, 0.14);
             }
+
+            .bottom .content .description article{
+                color: #616161;
+            }            
+
             .bottom .content .actions{        
-                width: 20%;   
+                width: 25%;   
                 @apply --layout-horizontal;
                 @apply(--layout-center);
                 @apply(--layout-center-justified);
-                padding-top:15%;
+                padding-top:10%;
             }
 
             .remixbutton{
@@ -186,7 +196,7 @@
             </div>
             <div class="content">
                 <div class="description">
-                    <h2 class="title">[[share.title]]</h2>
+                    <h3 class="title">[[share.title]]</h3>
                     <article>[[share.description]]</article>
                 </div>
                 <div class="actions">
