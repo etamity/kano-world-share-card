@@ -98,13 +98,12 @@
             
             .stats {
                 @apply --layout-horizontal;
-                padding-bottom: 16px;
+                padding: 16px;
             }
 
             .stats .likes,
             .stats .comments,
             .stats .shares {
-                padding: 6px;
                 width: 60px;
             }
             
@@ -139,9 +138,12 @@
             .bottom .content {
                 @apply --layout-horizontal;
                 padding-bottom:16px;
+            }
+            .bottom .line{
                 border-top-style: solid;
-                border-top-width: 0.5px;
+                border-top-width: 1px;
                 border-top-color: rgba(99, 107, 126, .14);
+                padding: 8px;
             }
             .bottom .content .description {
                  @apply(--layout-flex-3);
@@ -168,6 +170,37 @@
                 color: white;
                 border: none;
             }
+            .comments{
+                @apply --layout-vertical;
+                @apply --layout-center;
+                @apply --layout-justified;
+            }
+
+            .comments h3{
+                color: rgba(67, 80, 86, 1);
+                font-weight: 300 ;
+                margin: 16px;
+            }
+            .comments .inputcomment{
+                @apply --layout-horizontal;
+                @apply(--layout-center);
+                @apply(--layout-center-justified);
+            }
+            .comments .inputcomment .commentAvatar{
+                @apply(--layout-flex);
+            }
+            .comments .inputcomment .input{
+                @apply(--layout-flex-4);
+                @apply(--layout-relative);
+                border-radius:3px;
+                border: 1px solid rgba(99, 107, 126, .14);
+                
+            }
+            .comments .inputcomment .input input{
+                width: 100%;
+                height: 45px;
+                font-size: 14px ;
+            }
 
         </style>
         <div class="top" tombstone$="[[!share]]">
@@ -179,31 +212,73 @@
                 <date-util format="dd Mon yyyy" date="[[_createDate(share.date_created)]]"></date-util>
             </div>
         </div>
+        <slot name="cover">
         <div class="coverbackground">
         <iron-image id="cover" class="cover" src="[[share.cover_url]]" sizing="cover" preload fade tombstone$="[[!share]]"></iron-image>
         </div>
-        <div class="bottom" tombstone$="[[!share]]">
-            <div class="stats">
-                <div class="likes">
-                  <span><img src="images/likesIcon.png"> </img>[[share.likes.length]]</span>
+            <div class="bottom" tombstone$="[[!share]]">
+                <div class="stats">
+                    <div class="likes">
+                    <span><img src="images/likesIcon.png"> </img>[[share.likes.length]]</span>
+                    </div>
+                    <div class="comments">
+                        <span><img src="images/commentIcon.png"> </img>[[share.comments_count]]</span>
+                    </div>
+                    <div class="shares">
+                        <span><img src="images/shareIcon.png"> </img>share</span>
+                    </div>
                 </div>
-                <div class="comments">
-                    <span><img src="images/commentIcon.png"> </img>[[share.comments_count]]</span>
-                </div>
-                 <div class="shares">
-                    <span><img src="images/shareIcon.png"> </img>share</span>
+                <div class="line"></div>
+                <div class="content">
+                    <div class="description">
+                        <h3 class="title">[[share.title]]</h3>
+                        <article>[[share.description]]</article>
+                    </div>
+                    <div class="actions">
+                        <button type="submit" class="remixbutton" onclick="">remix <img src="images/remix.png" /></button>
+                    </div>
                 </div>
             </div>
-            <div class="content">
-                <div class="description">
-                    <h3 class="title">[[share.title]]</h3>
-                    <article>[[share.description]]</article>
+        </slot>
+        <slot name="app">
+            <div class="coverbackground">
+                <iron-image id="cover" class="cover" src="[[share.cover_url]]" sizing="cover" preload fade tombstone$="[[!share]]"></iron-image>
                 </div>
-                <div class="actions">
-                     <button type="submit" class="remixbutton" onclick="">remix <img src="images/remix.png" /></button>
-                </div>
-            </div>
-        </div>
+                    <div class="bottom" tombstone$="[[!share]]">
+                        <div class="content">
+                            <div class="description">
+                                <h3 class="title">[[share.title]]</h3>
+                                <article>[[share.description]]</article>
+                            </div>
+                            <div class="actions">
+                                <button type="submit" class="remixbutton" onclick="">remix <img src="images/remix.png" /></button>
+                            </div>
+                        </div>
+                        <div class="line"></div>
+                        <div class="stats">
+                            <div class="likes">
+                            <span><img src="images/likesIcon.png"> </img>[[share.likes.length]]</span>
+                            </div>
+                            <div class="comments">
+                                <span><img src="images/commentIcon.png"> </img>[[share.comments_count]]</span>
+                            </div>
+                            <div class="shares">
+                                <span><img src="images/shareIcon.png"> </img>share</span>
+                            </div>
+                        </div>
+                        <div class="line"></div>
+                        <div class="comments">
+                            <h3>Be the first to comment!</h3>
+                            <div class="inputcomment">
+                                <div class="commentAvatar"><img src="images/commentAvatar.png" /></div>
+                                <div class="input">
+                                    <input type="text">
+                                    <button type="submit" class="remixbutton" onclick="">comment <img src="images/comment.png" /></button>
+                                </div>
+                            </div>
+                        </div>
+                 </div>
+        </slot>
     </template>
     <script>
         Polymer({
