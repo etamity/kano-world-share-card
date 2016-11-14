@@ -162,7 +162,8 @@
                 padding-top:10%;
             }
 
-            .remixbutton{
+
+            .orangebutton{
                 background-color: #FF8413;
                 border-radius: 5px;
                 width:79px;
@@ -170,10 +171,20 @@
                 color: white;
                 border: none;
             }
+            .remixbutton{
+                width:79px;
+      
+            }
+
+            .commentbutton{
+                width:130px;
+            }
+
             .comments{
                 @apply --layout-vertical;
                 @apply --layout-center;
                 @apply --layout-justified;
+                padding-bottom:16px;
             }
 
             .comments h3{
@@ -184,22 +195,26 @@
             .comments .inputcomment{
                 @apply --layout-horizontal;
                 @apply(--layout-center);
-                @apply(--layout-center-justified);
+                width:80%;
             }
             .comments .inputcomment .commentAvatar{
-                @apply(--layout-flex);
+                @apply --layout-flex;
+                margin: 16px;
             }
             .comments .inputcomment .input{
-                @apply(--layout-flex-4);
-                @apply(--layout-relative);
+                @apply --layout-horizontal;
+                @apply(--layout-center);
                 border-radius:3px;
                 border: 1px solid rgba(99, 107, 126, .14);
-                
+                height: 45px;
+                width:90%;
+                padding: 8px;
             }
             .comments .inputcomment .input input{
-                width: 100%;
-                height: 45px;
+                width: 80%;
+                height: 32px;
                 font-size: 14px ;
+                border:none;
             }
 
         </style>
@@ -235,7 +250,7 @@
                         <article>[[share.description]]</article>
                     </div>
                     <div class="actions">
-                        <button type="submit" class="remixbutton" onclick="">remix <img src="images/remix.png" /></button>
+                        <button type="submit" class="orangebutton remixbutton" onclick="">remix <img src="images/remix.png" /></button>
                     </div>
                 </div>
             </div>
@@ -251,7 +266,7 @@
                                 <article>[[share.description]]</article>
                             </div>
                             <div class="actions">
-                                <button type="submit" class="remixbutton" onclick="">remix <img src="images/remix.png" /></button>
+                                <button type="submit" class="orangebutton remixbutton" onclick="">remix <img src="images/remix.png" /></button>
                             </div>
                         </div>
                         <div class="line"></div>
@@ -272,8 +287,8 @@
                             <div class="inputcomment">
                                 <div class="commentAvatar"><img src="images/commentAvatar.png" /></div>
                                 <div class="input">
-                                    <input type="text">
-                                    <button type="submit" class="remixbutton" onclick="">comment <img src="images/comment.png" /></button>
+                                    <input type="text" placeholder="Type your message ...">
+                                    <button type="submit" class="orangebutton commentbutton" style="width:130px;" onclick="">comment <img src="images/comment.png" /></button>
                                 </div>
                             </div>
                         </div>
