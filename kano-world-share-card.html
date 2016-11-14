@@ -30,22 +30,21 @@
                 outline: none;
                 box-shadow: 0 3px 0 0 rgba(0, 0, 0, 0.08);
             }
-
-
-            .coverbackground{
+            
+            .coverbackground {
                 background: #253238;
                 @apply(--layout-relative);
                 width: 100%;
                 height: 373px;
             }
-                        
+            
             .coverbackground iron-image.cover {
                 @apply --layout-fit;
                 z-index: 0;
                 width: 100%;
                 background: inherit;
             }
-
+            
             .top,
             .bottom {
                 width: 95%;
@@ -55,7 +54,6 @@
             }
             
             .bottom {
-                margin-bottom: 0px;
                 @apply(--layout-vertical);
             }
             
@@ -68,13 +66,15 @@
             .datetime {
                 @apply --layout-horizontal;
                 @apply --layout-end;
-                width: 120px;
+                width: 140px;
             }
             
             .title {
                 color: rgba(67, 80, 86, 1);
-                font-weight: 300 ;
-                margin-right: 12px;
+                font-weight: bold;
+                margin-right: 16px;
+                font-family: "bariol";
+                font-size: 16px;
             }
             
             iron-image.avatar {
@@ -86,22 +86,12 @@
                 border-radius: 50%;
             }
             
-            .details {
-                padding-left: 18px;
-            }
-            
-            .details h3,
-            .details p {
-                margin: 0;
-            }
-            
             .stats {
                 @apply --layout-horizontal;
-                padding: 8px;
             }
-
+            
             .stats .likes,
-            .stats .comments,
+            .stats .comment,
             .stats .shares {
                 width: 60px;
             }
@@ -128,97 +118,169 @@
             }
             
             div[tombstone].bottom .likes,
-            div[tombstone].bottom .comments {
+            div[tombstone].bottom .comment {
                 width: 80px;
                 height: 20px;
                 background: rgba(0, 0, 0, 0.01);
                 color: transparent;
             }
+            
             .bottom .content {
                 @apply --layout-horizontal;
-                padding-bottom:16px;
+                margin-top: 8px;
+                margin-bottom: 8px;
             }
-            .bottom .line{
-                border-top-style: solid;
-                border-top-width: 1px;
-                border-top-color: rgba(99, 107, 126, .14);
-                padding: 8px;
+            
+            .bottom .line {
+                height: 1px;
+                width: 100%;
+                display: block;
+                background-color: rgba(99, 107, 126, .24);
+                margin-top: 16px;
+                margin-bottom: 16px;
             }
+            
             .bottom .content .description {
-                 @apply(--layout-flex-3);
-                 color: rgba(97, 97, 97, 0.14);
+                @apply(--layout-flex-3);
+                color: rgba(97, 97, 97, 0.14);
             }
-
-            .bottom .content .description article{
+            
+            .bottom .content .description h3 {
+                margin: 0;
+            }
+            
+            .bottom .content .description p {
                 color: #616161;
-            }            
-
-            .bottom .content .actions{        
-                width: 25%;   
+                margin-right: 16px;
+                font-family: "bariol";
+                font-weight: normal;
+                font-size: 16px;
+                margin-top: 8px;
+                margin-bottom: 8px;
+            }
+            
+            .bottom .content .actions {
+                width: 25%;
                 @apply --layout-horizontal;
                 @apply(--layout-center);
-                @apply(--layout-center-justified);
-                padding-top:10%;
+                @apply(--layout-end-justified);
+                padding-top: 5%;
             }
-
-
-            .orangebutton{
+            
+            .orangebutton {
                 background-color: #FF8413;
                 border-radius: 5px;
-                width:79px;
-                height:32px;
+                width: 79px;
+                height: 32px;
                 color: white;
                 border: none;
             }
-            .remixbutton{
-                width:79px;
-      
+            
+            .remixbutton {
+                width: 79px;
             }
-
-            .commentbutton{
-                width:130px;
+            
+            .commentbutton {
+                width: 100px;
             }
-
-            .comments{
+            
+            .comments {
                 @apply --layout-vertical;
                 @apply --layout-center;
                 @apply --layout-justified;
-                padding-bottom:16px;
+                padding-bottom: 16px;
+                background-color: #E0E1E4;
+                width: 100%;
             }
-
-            .comments h3{
+            
+            .comments h3 {
                 color: rgba(67, 80, 86, 1);
-                font-weight: 300 ;
-                margin: 16px;
+                font-weight: 300;
+                margin: 32px;
             }
-            .comments .inputcomment{
+            
+            .comments .inputcomment {
                 @apply --layout-horizontal;
                 @apply(--layout-center);
-                width:80%;
+                width: 80%;
             }
-            .comments .inputcomment .commentAvatar{
+            
+            .comments .inputcomment .commentAvatar {
                 @apply --layout-flex;
                 margin: 16px;
             }
-            .comments .inputcomment .input{
+            
+            .comments .inputcomment .input {
                 @apply --layout-horizontal;
                 @apply(--layout-center);
-                border-radius:3px;
+                border-radius: 3px;
                 border: 1px solid rgba(99, 107, 126, .14);
                 height: 45px;
-                width:90%;
+                width: 90%;
                 padding: 8px;
+                background-color: white;
             }
-            .comments .inputcomment .input input{
+            
+            .comments .inputcomment .input input {
                 width: 80%;
                 height: 32px;
-                font-size: 14px ;
-                border:none;
+                font-size: 14px;
+                border: none;
+                margin: 8px;
             }
-
+            
+            .playercontrol {
+                @apply --layout-horizontal;
+                @apply(--layout-center);
+                width: 100%;
+            }
+            
+            .playercontrol .pause {
+                @apply(--layout-justified);
+            }
+            
+            .playercontrol .replay {
+                @apply(--layout-justified);
+            }
+            
+            .playercontrol .lineV {
+                @apply(--layout-justified);
+                height: 20px;
+                width: 1px;
+                display: block;
+                background-color: rgba(99, 107, 126, .24);
+                margin-right: 16px;
+                margin-left: 16px;
+            }
+            
+            .playercontrol .space {
+                @apply(--layout-flex);
+            }
+            
+            .playercontrol .fullscreen {
+                @apply --layout-end-justified;
+            }
+            
+            .appContainer {
+                box-sizing: border-box;
+                padding: 16px;
+                width: 100%;
+                height: 373px;
+                @apply(--layout-relative);
+            }
+            
+            .appContainer iron-image.cover {
+                @apply --layout-fit;
+                z-index: 0;
+                margin-left:16px;
+                margin-right:16px;
+                background: inherit;
+                @apply --layout-center-justified;
+                border-radius: 3px;
+            }
         </style>
         <div class="top" tombstone$="[[!share]]">
-            <iron-image class="avatar" src="[[share.user.avatar.urls.circle]]" sizing="contain" preload fade></iron-image>
+            <iron-image position="bottom" class="avatar" src="[[share.user.avatar.urls.circle]]" sizing="contain" preload fade></iron-image>
             <div class="share-info">
                 <span class="author">[[share.user.username]]</span>
             </div>
@@ -227,71 +289,84 @@
             </div>
         </div>
         <slot name="cover">
-        <div class="coverbackground">
-        <iron-image id="cover" class="cover" src="[[share.cover_url]]" sizing="cover" preload fade tombstone$="[[!share]]"></iron-image>
-        </div>
+            <div class="coverbackground">
+                <iron-image id="cover" class="cover" src="[[share.cover_url]]" sizing="cover" preload fade tombstone$="[[!share]]"></iron-image>
+            </div>
             <div class="bottom" tombstone$="[[!share]]">
                 <div class="stats">
                     <div class="likes">
-                    <span><img src="images/likesIcon.png"> </img>[[share.likes.length]]</span>
+                        <span><img src="images/like.svg"> </img>[[share.likes.length]]</span>
                     </div>
-                    <div class="comments">
-                        <span><img src="images/commentIcon.png"> </img>[[share.comments_count]]</span>
+                    <div class="comment">
+                        <span><img src="images/comment_b.svg"> </img>[[share.comments_count]]</span>
                     </div>
                     <div class="shares">
-                        <span><img src="images/shareIcon.png"> </img>share</span>
+                        <span><img src="images/share.svg"> </img>share</span>
                     </div>
                 </div>
                 <div class="line"></div>
                 <div class="content">
                     <div class="description">
                         <h3 class="title">[[share.title]]</h3>
-                        <article>[[share.description]]</article>
+                        <p>[[share.description]]</p>
                     </div>
                     <div class="actions">
-                        <button type="submit" class="orangebutton remixbutton" onclick="">remix <img src="images/remix.png" /></button>
+                        <button type="submit" class="orangebutton remixbutton" onclick="">remix <img src="images/remix.svg" /></button>
                     </div>
                 </div>
             </div>
         </slot>
         <slot name="app">
-            <div class="coverbackground">
+            <div class="appContainer">
                 <iron-image id="cover" class="cover" src="[[share.cover_url]]" sizing="cover" preload fade tombstone$="[[!share]]"></iron-image>
+            </div>
+            <div class="bottom" tombstone$="[[!share]]">
+                <div class="playercontrol">
+                    <div class="pause">
+                        <span><img src="images/pause.svg"></img></span>
+                    </div>
+                    <div class="lineV"></div>
+                    <div class="replay">
+                        <span><img src="images/replay.svg"> </img></span>
+                    </div>
+                    <div class="space"></div>
+                    <div class="fullscreen">
+                        <span><img src="images/fullscreen.svg"> </img></span>
+                    </div>
                 </div>
-                    <div class="bottom" tombstone$="[[!share]]">
-                        <div class="content">
-                            <div class="description">
-                                <h3 class="title">[[share.title]]</h3>
-                                <article>[[share.description]]</article>
-                            </div>
-                            <div class="actions">
-                                <button type="submit" class="orangebutton remixbutton" onclick="">remix <img src="images/remix.png" /></button>
-                            </div>
-                        </div>
-                        <div class="line"></div>
-                        <div class="stats">
-                            <div class="likes">
-                            <span><img src="images/likesIcon.png"> </img>[[share.likes.length]]</span>
-                            </div>
-                            <div class="comments">
-                                <span><img src="images/commentIcon.png"> </img>[[share.comments_count]]</span>
-                            </div>
-                            <div class="shares">
-                                <span><img src="images/shareIcon.png"> </img>share</span>
-                            </div>
-                        </div>
-                        <div class="line"></div>
-                        <div class="comments">
-                            <h3>Be the first to comment!</h3>
-                            <div class="inputcomment">
-                                <div class="commentAvatar"><img src="images/commentAvatar.png" /></div>
-                                <div class="input">
-                                    <input type="text" placeholder="Type your message ...">
-                                    <button type="submit" class="orangebutton commentbutton" style="width:130px;" onclick="">comment <img src="images/comment.png" /></button>
-                                </div>
-                            </div>
-                        </div>
-                 </div>
+                <div class="line"></div>
+                <div class="content">
+                    <div class="description">
+                        <h3 class="title">[[share.title]]</h3>
+                        <p>[[share.description]]</p>
+                    </div>
+                    <div class="actions">
+                        <button type="submit" class="orangebutton remixbutton" onclick="">remix <img src="images/remix.svg" /></button>
+                    </div>
+                </div>
+                <div class="stats">
+                    <div class="likes">
+                        <span><img src="images/like.svg"> </img>[[share.likes.length]]</span>
+                    </div>
+                    <div class="comment">
+                        <span><img src="images/comment_b.svg"> </img>[[share.comments_count]]</span>
+                    </div>
+                    <div class="shares">
+                        <span><img src="images/share.svg"> </img>share</span>
+                    </div>
+                </div>
+                <div class="line"></div>
+            </div>
+            <div class="comments" tombstone$="[[!share]]">
+                <h3>Be the first to comment!</h3>
+                <div class="inputcomment">
+                    <div class="commentAvatar"><img src="images/commentAvatar.svg" /></div>
+                    <div class="input">
+                        <input type="text" placeholder="Type your message ...">
+                        <button type="submit" class="orangebutton commentbutton" onclick="">comment <img src="images/comment.svg" /></button>
+                    </div>
+                </div>
+            </div>
         </slot>
     </template>
     <script>

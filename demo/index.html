@@ -15,7 +15,7 @@
 
     <style is="custom-style" include="demo-pages-shared-styles">
         .centered {
-            max-width: 620px;
+            max-width: 699px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -31,11 +31,13 @@
         <h3>Basic kano-world-share-card demo</h3>
         <demo-snippet>
             <template>
-				<kano-world-share-card id="share"></kano-world-share-card>
+				<kano-world-share-card id="share"><div slot="cover"></div></kano-world-share-card>
+                <h3>Detail Card</h3>
+                <kano-world-share-card id="share-detail"><div slot="app"></div></kano-world-share-card>
                 <script>
                         document.addEventListener('WebComponentsReady', function () {
                             var card = document.querySelector('kano-world-share-card#share');
-
+                            var cardDetail = document.querySelector('kano-world-share-card#share-detail');
                             card.share = {
                                 title: 'My awesome share',
                                 description:"Please note that the new version does not use deep, and therefore requires you to import the dom-modules in every element that needs to use them.",
@@ -52,6 +54,7 @@
                                 likes: new Array(27),
                                 comments_count: 5
                             }
+                            cardDetail.share = card.share;
                         });
                     </script>
 			</template>

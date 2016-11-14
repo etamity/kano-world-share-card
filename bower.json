@@ -35,6 +35,7 @@
     "polymer": "Polymer/polymer#^1.7.0",
     "polymer-filters": "paulvarache/polymer-filters",
     "web-component-tester": "^4.3.5",
-    "webcomponentsjs": "webcomponents/webcomponentsjs"
+    "webcomponentsjs": "webcomponents/webcomponentsjs",
+    "iron-component-page": "PolymerElements/iron-component-page#^1.1.7"
   }
 }
