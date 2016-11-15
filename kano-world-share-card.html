@@ -56,13 +56,14 @@
 			.bottom {
 				@apply(--layout-vertical);
 			}
-
+			
 			.author {
-                @apply --layout-horizontal;
-				@apply --layout-end;   
-            }
+				@apply --layout-horizontal;
+				@apply --layout-end;
+			}
+			
 			.datetime {
-              	@apply --layout-horizontal;
+				@apply --layout-horizontal;
 				@apply --layout-end;
 			}
 			
@@ -75,8 +76,8 @@
 			}
 			
 			iron-image.avatar {
-				width: 45px;
-				height: 45px;
+				width: 35px;
+				height: 35px;
 				margin-right: 8px;
 				-webkit-border-radius: 50%;
 				-moz-border-radius: 50%;
@@ -85,12 +86,13 @@
 			
 			.stats {
 				@apply --layout-horizontal;
+				color: #435055;
+				font-size: 12px;
 			}
 			
-			.stats .likes,
 			.stats .comment,
 			.stats .shares {
-				width: 60px;
+				padding-left: 30px;
 			}
 			
 			div[tombstone].top .avatar {
@@ -133,7 +135,7 @@
 				width: 100%;
 				display: block;
 				background-color: rgba(99, 107, 126, .24);
-				margin-top: 16px;
+				margin-top: 15px;
 				margin-bottom: 16px;
 			}
 			
@@ -144,6 +146,8 @@
 			
 			.bottom .content .description h3 {
 				margin: 0;
+				font-size: 16px;
+				line-height: 23px;
 			}
 			
 			.bottom .content .description p {
@@ -164,6 +168,12 @@
 				padding-top: 5%;
 			}
 			
+			.bottom .content .actions button img {
+				position: relative;
+				top: 2px;
+				left: 2px;
+			}
+			
 			.orangebutton {
 				background-color: #FF8413;
 				border-radius: 5px;
@@ -181,6 +191,12 @@
 				width: 100px;
 			}
 			
+			.commentbutton img {
+				position: relative;
+				top: 2px;
+				left: 2px;
+			}
+			
 			.comments {
 				@apply --layout-vertical;
 				@apply --layout-center;
@@ -191,15 +207,18 @@
 			}
 			
 			.comments h3 {
-				color: rgba(67, 80, 86, 1);
+				color: grey;
 				font-weight: 300;
 				margin: 32px;
+				font-size: 16px;
+				line-height: 43px;
 			}
 			
 			.comments .inputcomment {
 				@apply --layout-horizontal;
 				@apply(--layout-center);
 				width: 80%;
+				padding-bottom:54px;
 			}
 			
 			.comments .inputcomment .commentAvatar {
@@ -281,7 +300,7 @@
 			<div class="author">
 				<span>[[share.user.username]]</span>
 			</div>
-            <div class="space"></div>
+			<div class="space"></div>
 			<div class="datetime">
 				<date-util format="dd Mon yyyy" date="[[_createDate(share.date_created)]]"></date-util>
 			</div>
@@ -293,10 +312,10 @@
 			<div class="bottom" tombstone$="[[!share]]">
 				<div class="stats">
 					<div class="likes">
-						<span><img src="images/like.svg"> </img>[[share.likes.length]]</span>
+						<span><img src="images/like.svg"> </img>[[share.likes.length]] likes</span>
 					</div>
 					<div class="comment">
-						<span><img src="images/comment_b.svg"> </img>[[share.comments_count]]</span>
+						<span><img src="images/comment_b.svg"> </img>[[share.comments_count]] comments</span>
 					</div>
 					<div class="shares">
 						<span><img src="images/share.svg"> </img>share</span>
@@ -309,7 +328,7 @@
 						<p>[[share.description]]</p>
 					</div>
 					<div class="actions">
-						<button type="submit" class="orangebutton remixbutton" onclick="">remix <img src="images/remix.svg" /></button>
+						<button type="submit" class="orangebutton remixbutton" onclick="">remix<img src="images/remix.svg" /></button>
 					</div>
 				</div>
 			</div>
@@ -342,18 +361,18 @@
 						<button type="submit" class="orangebutton remixbutton" onclick="">remix <img src="images/remix.svg" /></button>
 					</div>
 				</div>
+				<div class="line"></div>
 				<div class="stats">
 					<div class="likes">
-						<span><img src="images/like.svg"> </img>[[share.likes.length]]</span>
+						<span><img src="images/like.svg"> </img>[[share.likes.length]] likes</span>
 					</div>
 					<div class="comment">
-						<span><img src="images/comment_b.svg"> </img>[[share.comments_count]]</span>
+						<span><img src="images/comment_b.svg"> </img>[[share.comments_count]] comments</span>
 					</div>
 					<div class="shares">
 						<span><img src="images/share.svg"> </img>share</span>
 					</div>
 				</div>
-				<div class="line"></div>
 			</div>
 			<div class="comments" tombstone$="[[!share]]">
 				<h3>Be the first to comment!</h3>
